@@ -1,5 +1,5 @@
 # =============================================================================
-# add_woodfuel_to_matrix.R
+# Rscript add_woodfuel_to_matrix.R <base_output_dir> <matrix_in>
 #
 # Standalone post-processor. Run AFTER createMatrix_MAgPIE_MESSAGE.R has written
 # the matrix. Two steps:
@@ -23,6 +23,19 @@ suppressPackageStartupMessages({
   library(stringr)
 })
 
+args <- commandArgs(trailingOnly = TRUE)
+
+if (length(args) != 2) {
+  stop(
+    "Expected 2 arguments.\n",
+    "Usage: Rscript add_woodfuel_to_matrix.R <base_output_dir> <matrix_in>\n",
+    "  e.g. Rscript add_woodfuel_to_matrix.R ",
+    "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_ALL/SSP2_BD78 ",
+    "/p/projects/magpie/users/dish/emulator/magpie_input_SSP2_ALL.csv"
+  )
+}
+
+
 # ===== USER INPUT (match the main script) ====================================
 
 # base_output_dir
@@ -32,7 +45,8 @@ suppressPackageStartupMessages({
 # base_output_dir <- "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8/SSP2_BD00"
 # base_output_dir <- "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_LAND/SSP2_BD78"
 # base_output_dir <- "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_FOOD/SSP2_BD00"
-base_output_dir <- "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_ALL/SSP2_BD78"
+# base_output_dir <- "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_ALL/SSP2_BD78"
+base_output_dir <- args[1]
 
 # scenario_prefix <- "SSP2_BD00"
 scenario_prefix <- basename(base_output_dir)
@@ -47,7 +61,8 @@ ghg_price_values <- c(0, 10, 20, 50, 100, 200, 400, 600, 1000, 2000, 3000, 4000)
 # matrix_in  <- "/p/projects/magpie/users/dish/emulator/magpie_input_SSP2_ref.xlsx"
 # matrix_in  <- "/p/projects/magpie/users/dish/emulator/magpie_input_SSP2_LAND.xlsx"
 # matrix_in  <- "/p/projects/magpie/users/dish/emulator/magpie_input_SSP2_FOOD.xlsx"
-matrix_in  <- "/p/projects/magpie/users/dish/emulator/magpie_input_SSP2_ALL.csv"
+# matrix_in  <- "/p/projects/magpie/users/dish/emulator/magpie_input_SSP2_ALL.csv"
+matrix_in  <- args[2]
 
 # matrix_out <- sub("\\.xlsx$", "_woodfuel.xlsx", matrix_in)
 matrix_out <- sub("\\.csv$", "_woodfuel.csv", matrix_in)
@@ -181,6 +196,6 @@ message("Done.")
 #    exist in both the gdx and the matrix). If far fewer, suspect a region-name
 #    or scenario-tag mismatch between the matrix and the woodfuel table.
 #  - Spot-check one cell: matrix Primary Energy|Biomass at (BIO00, GHG000, World,
-#    2050) in *_woodfuel.xlsx should exceed the original matrix by the summed
+#    2050) in *_woodfuel.csv should exceed the original matrix by the summed
 #    regional woodfuel EJ for that run/year.
 # =============================================================================

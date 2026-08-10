@@ -1,5 +1,5 @@
 # =============================================================================
-# createMatrix_MM.R
+# Rscript createMatrix_MM.R <base_output_dir> <matrix_file>
 #
 # Transform MAgPIE report.mif outputs from a BE-price x GHG-price scenario grid
 # into a single matrix that MESSAGEix can read.
@@ -22,8 +22,23 @@ suppressPackageStartupMessages({
 # base_output_dir
 # matrix_file
 
+args <- commandArgs(trailingOnly = TRUE)
+
+if (length(args) != 2) {
+  stop(
+    "Expected 2 arguments.\n",
+    "Usage: Rscript createMatrix_MM.R <base_output_dir> <matrix_file>\n",
+    "  e.g. Rscript createMatrix_MM.R ",
+    "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_ALL/SSP2_BD78 ",
+    "/p/projects/magpie/users/dish/emulator/magpie_input_SSP2_ALL.csv"
+  )
+}
+
+
+
 # Base directory holding the run folders (one level above SSP2_BD..._BE.._G..).
-base_output_dir <- "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_ALL/SSP2_BD78"
+# base_output_dir <- "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_ALL/SSP2_BD78"
+base_output_dir <- args[1]
 
 # Run folders are:  <scenario_prefix>_BE{bb}_G{gggg}<run_suffix>
 scenario_prefix <- basename(base_output_dir)   # e.g. "SSP2_BD78"
@@ -41,7 +56,8 @@ sdg_scen <- "noSDG_rcpref"
 # Outputs.
 matrix_output_dir <- "/p/projects/magpie/users/dish/emulator"
 map_file          <- "/p/projects/magpie/users/dish/emulator/MM_linkage_mapping.csv"
-matrix_file       <- file.path(matrix_output_dir, "magpie_input_SSP2_ALL.csv")
+# matrix_file       <- file.path(matrix_output_dir, "magpie_input_SSP2_ALL.csv")
+matrix_file       <- file.path(matrix_output_dir, args[2])
 
 # =============================================================================
 
