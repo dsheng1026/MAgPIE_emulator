@@ -31,6 +31,12 @@ Emissions|N2O|Land|Agriculture|+|Agricultural Soils (Mt N2O/yr);Emissions|N2O|AF
 Emissions|N2O|Land|Agriculture|+|Animal Waste Management (Mt N2O/yr);Emissions|N2O|AFOLU|Agriculture|Livestock|Manure Management (kt N2O/yr);1000;NULL;reg+glo
 Emissions|N2O|Land|+|Biomass Burning (Mt N2O/yr);Emissions|N2O|AFOLU|Biomass Burning (kt N2O/yr);1000;NULL;reg+glo
 Emissions|N2O|Land|+|Peatland (Mt N2O/yr);Emissions|N2O|AFOLU|Land (kt N2O/yr);1000;NULL;reg+glo
+Emissions|CO2|Land|Land-use Change|Regrowth|+|CO2-price AR (Mt CO2/yr);Carbon Removal|Land Use|Re/Afforestation (Mt CO2/yr);-1;NULL;reg+glo
+Emissions|CO2|Land|Land-use Change|Regrowth|+|NPI_NDC AR (Mt CO2/yr);Carbon Removal|Land Use|Re/Afforestation (Mt CO2/yr);-1;NULL;reg+glo
+Emissions|CO2|Land|Land-use Change|Regrowth|+|Cropland Tree Cover (Mt CO2/yr);Carbon Removal|Land Use|Agroforestry (Mt CO2/yr);-1;NULL;reg+glo
+Emissions|CO2|Land|Land-use Change|Soil|Soil Carbon Management|+|Withdrawals (Mt CO2/yr);Carbon Removal|Land Use|Soil Carbon Management (Mt CO2/yr);-1;NULL;reg+glo
+Emissions|CO2|Land|Land-use Change|Peatland|+|Negative (Mt CO2/yr);Carbon Removal|Land Use|Other (Mt CO2/yr);-1;NULL;reg+glo
+Emissions|CO2|Land|Land-use Change|Timber|+|Storage in HWP (Mt CO2/yr);Carbon Removal|Long-Lived Materials|Timber (Mt CO2/yr);-1;NULL;reg+glo
 SDG|SDG02|Prevalence of underweight (million);Population|Risk of Hunger (million);1;NULL;reg+glo
 Resources|Land Cover (million ha);Land Cover (million ha);1;NULL;reg+glo
 Resources|Land Cover|+|Urban Area (million ha);Land Cover|Built-up Area (million ha);1;NULL;reg+glo
