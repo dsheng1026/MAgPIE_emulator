@@ -152,8 +152,17 @@ for (k in seq_len(nrow(grid))) {
   apply_mapping(mif_path, map_file, tmp_map, tmp_log)
 
   # Surface any mapping variables not found in this run's mif.
-  if (file.exists(tmp_log) && file.info(tmp_log)$size > 0)
-    message("    NOTE: some mapping variables were unmapped in ", folder)
+   # if (file.exists(tmp_log) && file.info(tmp_log)$size > 0)
+  #   message("    NOTE: some mapping variables were unmapped in ", folder)
+  # write.reportProject always writes a "#--- ... ---#" banner, so size > 0 is
+  # not evidence of a miss. Fire only on real (non-comment, non-blank) lines.
+  unmapped <- if (file.exists(tmp_log))
+    grep("^\\s*#|^\\s*$", readLines(tmp_log, warn = FALSE),
+         value = TRUE, invert = TRUE) else character(0)
+  if (length(unmapped))
+    message("    NOTE: unmapped in ", folder, ":\n      ",
+            paste(unmapped, collapse = "\n      "))
+ 
 
   df <- read.csv(tmp_map, sep = ";", check.names = FALSE,
                  stringsAsFactors = FALSE)
