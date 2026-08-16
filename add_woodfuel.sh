@@ -18,6 +18,8 @@
 #SBATCH --cpus-per-task=1          # serial
 #SBATCH --mem=8G                   # peak: one gdx read + matrix held in memory
 #SBATCH --array=0-3  
+#SBATCH --mail-type=BEGIN,END
+#SBATCH --mail-user=sheng@iiasa.ac.at
  
 set -euo pipefail
  

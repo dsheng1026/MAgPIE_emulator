@@ -16,6 +16,8 @@
 #SBATCH --cpus-per-task=1          # the pipeline is single-threaded
 #SBATCH --mem=8G                   # peak is reading one 8-9 MB mif via iamc
 #SBATCH --array=0-3                 # four tasks: indices 0,1,2,3
+#SBATCH --mail-type=BEGIN,END
+#SBATCH --mail-user=sheng@iiasa.ac.at
 
 set -euo pipefail
 
