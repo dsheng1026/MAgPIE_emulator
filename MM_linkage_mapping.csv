@@ -79,3 +79,4 @@ Demand|Bioenergy|++|2nd generation (EJ/yr);Primary Energy|Biomass (EJ/yr);1;NULL
 Demand|Bioenergy|++|Traditional Burning (EJ/yr);Primary Energy|Biomass (EJ/yr);1;NULL;reg+glo
 Prices|Bioenergy (US$2017/GJ);Price|Primary Energy|Biomass (US$2005/GJ);0.81300813;NULL;reg+glo
 Prices|GHG Emission|CO2|Secondary Forest|Vegetation carbon (US$2017/tCO2);Price|Carbon|CO2 (US$2005/t CO2);0.81300813;NULL;reg+glo
+Productivity|Landuse Intensity Indicator Tau (Index);Landuse intensity indicator Tau (Index);1;NULL;reg+glo
