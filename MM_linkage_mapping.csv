@@ -17,10 +17,10 @@ Emissions|CO2|Land|Land-use Change|Regrowth|+|Cropland Tree Cover (Mt CO2/yr);Em
 Emissions|CO2|Land|Land-use Change|+|Soil (Mt CO2/yr);Emissions|CO2|AFOLU|Other (Mt CO2/yr);1;NULL;reg+glo
 Emissions|CO2|Land|Land-use Change|+|Other land conversion (Mt CO2/yr);Emissions|CO2|AFOLU|Other (Mt CO2/yr);1;NULL;reg+glo
 Emissions|CO2|Land|Land-use Change|+|Residual (Mt CO2/yr);Emissions|CO2|AFOLU|Other (Mt CO2/yr);1;NULL;reg+glo
-Emissions|CO2|Land|Biomass Burning|+|Burning of Crop Residues (Mt CO2/yr);Emissions|CO2|AFOLU|Biomass Burning (Mt CO2/yr);1;NULL;reg+glo
+Emissions|CO2|Land|Biomass Burning|+|Burning of Crop Residues (Mt CO2/yr);Emissions|CO2|AFOLU|Agricultural Waste Burning (Mt CO2/yr);1;NULL;reg+glo
 Emissions|CH4|Land (Mt CH4/yr);Emissions|CH4|AFOLU (Mt CH4/yr);1;NULL;reg+glo
 Emissions|CH4|Land|+|Agriculture (Mt CH4/yr);Emissions|CH4|AFOLU|Agriculture (Mt CH4/yr);1;NULL;reg+glo
-Emissions|CH4|Land|+|Biomass Burning (Mt CH4/yr);Emissions|CH4|AFOLU|Biomass Burning (Mt CH4/yr);1;NULL;reg+glo
+Emissions|CH4|Land|+|Biomass Burning (Mt CH4/yr);Emissions|CH4|AFOLU|Agricultural Waste Burning (Mt CH4/yr);1;NULL;reg+glo
 Emissions|CH4|Land|+|Peatland (Mt CH4/yr);Emissions|CH4|AFOLU|Land (Mt CH4/yr);1;NULL;reg+glo
 Emissions|CH4|Land|Agriculture|+|Enteric fermentation (Mt CH4/yr);Emissions|CH4|AFOLU|Agriculture|Livestock|Enteric Fermentation (Mt CH4/yr);1;NULL;reg+glo
 Emissions|CH4|Land|Agriculture|+|Animal waste management (Mt CH4/yr);Emissions|CH4|AFOLU|Agriculture|Livestock|Manure Management (Mt CH4/yr);1;NULL;reg+glo
@@ -29,7 +29,7 @@ Emissions|N2O|Land (Mt N2O/yr);Emissions|N2O|AFOLU (kt N2O/yr);1000;NULL;reg+glo
 Emissions|N2O|Land|+|Agriculture (Mt N2O/yr);Emissions|N2O|AFOLU|Agriculture (kt N2O/yr);1000;NULL;reg+glo
 Emissions|N2O|Land|Agriculture|+|Agricultural Soils (Mt N2O/yr);Emissions|N2O|AFOLU|Agriculture|Managed Soils (kt N2O/yr);1000;NULL;reg+glo
 Emissions|N2O|Land|Agriculture|+|Animal Waste Management (Mt N2O/yr);Emissions|N2O|AFOLU|Agriculture|Livestock|Manure Management (kt N2O/yr);1000;NULL;reg+glo
-Emissions|N2O|Land|+|Biomass Burning (Mt N2O/yr);Emissions|N2O|AFOLU|Biomass Burning (kt N2O/yr);1000;NULL;reg+glo
+Emissions|N2O|Land|+|Biomass Burning (Mt N2O/yr);Emissions|N2O|AFOLU|Agricultural Waste Burning (kt N2O/yr);1000;NULL;reg+glo
 Emissions|N2O|Land|+|Peatland (Mt N2O/yr);Emissions|N2O|AFOLU|Land (kt N2O/yr);1000;NULL;reg+glo
 Emissions|CO2|Land|Land-use Change|Regrowth|+|CO2-price AR (Mt CO2/yr);Carbon Removal|Land Use|Re/Afforestation (Mt CO2/yr);-1;NULL;reg+glo
 Emissions|CO2|Land|Land-use Change|Regrowth|+|NPI_NDC AR (Mt CO2/yr);Carbon Removal|Land Use|Re/Afforestation (Mt CO2/yr);-1;NULL;reg+glo
@@ -63,6 +63,23 @@ Emissions|CO2|Land|+|Land-use Change (Mt CO2/yr);Emissions|GHG|AFOLU (Mt CO2e/yr
 Emissions|CO2|Land|Biomass Burning|+|Burning of Crop Residues (Mt CO2/yr);Emissions|GHG|AFOLU (Mt CO2e/yr);1;NULL;reg+glo
 Emissions|CH4|Land (Mt CH4/yr);Emissions|GHG|AFOLU (Mt CO2e/yr);27;NULL;reg+glo
 Emissions|N2O|Land (Mt N2O/yr);Emissions|GHG|AFOLU (Mt CO2e/yr);273;NULL;reg+glo
+Emissions|BC|Land|Biomass Burning|+|Burning of Crop Residues (Mt BC/yr);Emissions|BC|AFOLU|Agricultural Waste Burning (kt BC/yr);1000;NULL;reg+glo
+Emissions|CO|Land|Biomass Burning|+|Burning of Crop Residues (Mt CO/yr);Emissions|CO|AFOLU|Agricultural Waste Burning (kt CO/yr);1000;NULL;reg+glo
+Emissions|NH3|Land|Biomass Burning|+|Burning of Crop Residues (Mt NH3/yr);Emissions|NH3|AFOLU|Agricultural Waste Burning (kt NH3/yr);1000;NULL;reg+glo
+Emissions|NO2|Land|Biomass Burning|+|Burning of Crop Residues (Mt NO2/yr);Emissions|NOx|AFOLU|Agricultural Waste Burning (kt NOx/yr);1000;NULL;reg+glo
+Emissions|OC|Land|Biomass Burning|+|Burning of Crop Residues (Mt OC/yr);Emissions|OC|AFOLU|Agricultural Waste Burning (kt OC/yr);1000;NULL;reg+glo
+Emissions|SO2|Land|Biomass Burning|+|Burning of Crop Residues (Mt SO2/yr);Emissions|Sulfur|AFOLU|Agricultural Waste Burning (kt SO2/yr);1000;NULL;reg+glo
+Emissions|VOC|Land|Biomass Burning|+|Burning of Crop Residues (Mt VOC/yr);Emissions|VOC|AFOLU|Agricultural Waste Burning (kt VOC/yr);1000;NULL;reg+glo
+Emissions|NH3|Land (Mt NH3/yr);Emissions|NH3|AFOLU (kt NH3/yr);1000;NULL;reg+glo
+Emissions|NH3|Land|+|Agriculture (Mt NH3/yr);Emissions|NH3|AFOLU|Agriculture (kt NH3/yr);1000;NULL;reg+glo
+Emissions|NH3|Land|Agriculture|+|Agricultural Soils (Mt NH3/yr);Emissions|NH3|AFOLU|Agriculture|Managed Soils (kt NH3/yr);1000;NULL;reg+glo
+Emissions|NH3|Land|Agriculture|+|Animal Waste Management (Mt NH3/yr);Emissions|NH3|AFOLU|Agriculture|Livestock|Manure Management (kt NH3/yr);1000;NULL;reg+glo
+Emissions|NH3|Land|+|Peatland (Mt NH3/yr);Emissions|NH3|AFOLU|Land (kt NH3/yr);1000;NULL;reg+glo
+Emissions|NO2|Land (Mt NO2/yr);Emissions|NOx|AFOLU (kt NOx/yr);1000;NULL;reg+glo
+Emissions|NO2|Land|+|Agriculture (Mt NO2/yr);Emissions|NOx|AFOLU|Agriculture (kt NOx/yr);1000;NULL;reg+glo
+Emissions|NO2|Land|Agriculture|+|Agricultural Soils (Mt NO2/yr);Emissions|NOx|AFOLU|Agriculture|Managed Soils (kt NOx/yr);1000;NULL;reg+glo
+Emissions|NO2|Land|Agriculture|+|Animal Waste Management (Mt NO2/yr);Emissions|NOx|AFOLU|Agriculture|Livestock|Manure Management (kt NOx/yr);1000;NULL;reg+glo
+Emissions|NO2|Land|+|Peatland (Mt NO2/yr);Emissions|NOx|AFOLU|Land (kt NOx/yr);1000;NULL;reg+glo
 Nutrition|Calorie Supply (kcal/capita/day);Food Demand (kcal/cap/day);1;Population (million people);reg+glo
 Nutrition|Calorie Supply|+|Crops (kcal/capita/day);Food Demand|Crops (kcal/cap/day);1;Population (million people);reg+glo
 Nutrition|Calorie Supply|+|Secondary products (kcal/capita/day);Food Demand|Crops (kcal/cap/day);1;Population (million people);reg+glo
@@ -77,6 +94,7 @@ Timber|Volumetric|Production|Roundwood|+|Wood fuel (Mm3/yr);Forestry Production|
 Demand|Bioenergy|++|1st generation (EJ/yr);Primary Energy|Biomass (EJ/yr);1;NULL;reg+glo
 Demand|Bioenergy|++|2nd generation (EJ/yr);Primary Energy|Biomass (EJ/yr);1;NULL;reg+glo
 Demand|Bioenergy|++|Traditional Burning (EJ/yr);Primary Energy|Biomass (EJ/yr);1;NULL;reg+glo
+Demand|Bioenergy|2nd generation|++|Bioenergy crops (EJ/yr);Primary Energy|Biomass|Energy Crops (EJ/yr);1;NULL;reg+glo
 Prices|Bioenergy (US$2017/GJ);Price|Primary Energy|Biomass (US$2005/GJ);0.81300813;NULL;reg+glo
 Prices|GHG Emission|CO2|Secondary Forest|Vegetation carbon (US$2017/tCO2);Price|Carbon|CO2 (US$2005/t CO2);0.81300813;NULL;reg+glo
 Productivity|Landuse Intensity Indicator Tau (Index);Landuse intensity indicator Tau (Index);1;NULL;reg+glo
