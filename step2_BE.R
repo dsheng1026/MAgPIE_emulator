@@ -2,6 +2,7 @@
 # INSTRUCTION:
 # before excute, update
 # title
+# sus: i.e. blV value
 # dest_dir
 # file.copy()
 
@@ -12,24 +13,39 @@ library(stringr)
 home.dir <- '/p/projects/magpie/users/dish/'
 # setwd(home.dir)
 
+
+
+
+# ------------ NEED TO CHANGE ------------ #
 # specify the price-driven run output folder
-# title <- "magpie/output/MESSAGEix_5ff27be8"
-# title <- "magpie/output/MESSAGEix_5ff27be8_LAND"
-# title <- "magpie/output/MESSAGEix_5ff27be8_FOOD"
-title <- "magpie/output/MESSAGEix_5ff27be8_ALL"
+# title <- "magpie/output/SUSCDR"
+# title <- "magpie/output/SUSCDR_LAND"
+# title <- "magpie/output/SUSCDR_FOOD"
+# title <- "magpie/output/SUSCDR_LAND_biodiv_0BE"
+# title <- "magpie/output/SUSCDR_LAND_food_0BE"
+# title <- "magpie/output/SUSCDR_LAND_ref_0BE"
+# title <- "magpie/output/SUSCDR_LAND_biodivfood_0BE"
+title <- "magpie/output/EC/"
+
+
+# blV <- c(0.78)
+# blV <- c("30by30")
+# blV <- c("food")
+# blV <- c("ref")
+# blV <- c("biodivfood")
+blV <- c("EC-LM")
+# blV <- c("EC-OC")
+# blV <- c("EC-UF")
+# ---------------------------------------- #
+
 setwd(paste0(home.dir, title))
 
-e_v <- c(0, 5, 7, 10, 15, 25, 45)
-bi_v <- c(0) # 0, 70, 74, 78
-mp_v <- c(0)
 
 output_flag <- "step2"
 
 beV <- c(0, 5, 7, 10, 15, 25, 45) # for folder naming, don't scale; for the value used in optimization, scale
 
-### Biodiv
-# blV <- c(0) # Options: 0, 0.7, 0.74, 0.78
-blV <- c(0.78)
+
 
 ### Microbiol protein (MP) Food
 mpV <- c(0) # Options: 0, 25, 50, 75
@@ -44,7 +60,8 @@ all_scen <- NULL
 
 for (bl in blV) {
   for (mp in mpV) {
-    preflag <- paste0("SSP2_BD", str_pad(bl * 100, 2, pad = "0"))
+    # preflag <- paste0("SSP2_BD", str_pad(bl * 100, 2, pad = "0"))
+    preflag <- paste0("SSP2_", bl)
     setwd(preflag)
     # BE price incentive 0, 5, 7, 10, 15, 25, 45 2005USD/GJ, but in MAgPIE 2017 USD is used, so scale by 1.23  
     file.copy("/p/projects/magpie/users/dish/f60_bioenergy_dem_R12_orig.cs3", "step3_f60_bioenergy_dem.cs3")
@@ -119,41 +136,108 @@ print(round(tab / 1000, 2))
 # update the "f60_bioenergy_dem.cs3" in the patch_folder
 
 ## Reference
-# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/SSP2_demand_cap"
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_ref"
 # dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
 # file.copy(
-#   from = "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8/SSP2_BD00/step3_f60_bioenergy_dem.cs3",
+#   from = "/p/projects/magpie/users/dish/magpie/output/SUSCDR/SSP2_BD00/step3_f60_bioenergy_dem.cs3",
 #   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
 #   overwrite = TRUE
 # )
 
 ## LAND
-# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/SSP2_demand_cap_LAND"
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_LAND"
 # dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
 # file.copy(
-#   from = "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_LAND/SSP2_BD78/step3_f60_bioenergy_dem.cs3",
+#   from = "/p/projects/magpie/users/dish/magpie/output/SUSCDR_LAND/SSP2_BD78/step3_f60_bioenergy_dem.cs3",
+#   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
+#   overwrite = TRUE
+# )
+
+## LAND
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_LAND_biodiv_0BE"
+# dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+# file.copy(
+#   from = "/p/projects/magpie/users/dish/magpie/output/SUSCDR_LAND_biodiv_0BE/SSP2_30by30/step3_f60_bioenergy_dem.cs3",
 #   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
 #   overwrite = TRUE
 # )
 
 
 ## FOOD
-# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/SSP2_demand_cap_FOOD"
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_LAND_food_0BE"
 # dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
 # file.copy(
-#   from = "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_FOOD/SSP2_BD00/step3_f60_bioenergy_dem.cs3",
+#   from = "/p/projects/magpie/users/dish/magpie/output/SUSCDR_LAND_food_0BE/SSP2_food/step3_f60_bioenergy_dem.cs3",
+#   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
+#   overwrite = TRUE
+# )
+
+
+## BASELINE
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_LAND_ref_0BE"
+# dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+# file.copy(
+#   from = "/p/projects/magpie/users/dish/magpie/output/SUSCDR_LAND_ref_0BE/SSP2_ref/step3_f60_bioenergy_dem.cs3",
+#   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
+#   overwrite = TRUE
+# )
+
+
+## BIODIVFOOD
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_LAND_biodivfood_0BE"
+# dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+# file.copy(
+#   from = "/p/projects/magpie/users/dish/magpie/output/SUSCDR_LAND_biodivfood_0BE/SSP2_biodivfood/step3_f60_bioenergy_dem.cs3",
+#   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
+#   overwrite = TRUE
+# )
+
+## EC-LM
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_EC-LM"
+# dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+# file.copy(
+#   from = "/p/projects/magpie/users/dish/magpie/output/EC/SSP2_EC-LM/step3_f60_bioenergy_dem.cs3",
+#   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
+#   overwrite = TRUE
+# )
+
+
+## EC-OC
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_EC-OC"
+# dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+# file.copy(
+#   from = "/p/projects/magpie/users/dish/magpie/output/EC/SSP2_EC-OC/step3_f60_bioenergy_dem.cs3",
+#   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
+#   overwrite = TRUE
+# )
+
+
+## EC-UF
+dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_EC-UF"
+dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+file.copy(
+  from = "/p/projects/magpie/users/dish/magpie/output/EC/SSP2_EC-UF/step3_f60_bioenergy_dem.cs3",
+  to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
+  overwrite = TRUE
+)
+
+## FOOD
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_FOOD"
+# dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+# file.copy(
+#   from = "/p/projects/magpie/users/dish/magpie/output/SUSCDR_FOOD/SSP2_BD00/step3_f60_bioenergy_dem.cs3",
 #   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
 #   overwrite = TRUE
 # )
 
 ## ALL
-dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/SSP2_demand_cap_ALL"
-dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
-file.copy(
-  from = "/p/projects/magpie/users/dish/magpie/output/MESSAGEix_5ff27be8_ALL/SSP2_BD78/step3_f60_bioenergy_dem.cs3",
-  to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
-  overwrite = TRUE
-)
+# dest_dir <- "/p/projects/magpie/users/dish/magpie/patch_folder/MM_411_demand_ALL"
+# dir.create(dest_dir, recursive = TRUE, showWarnings = FALSE)
+# file.copy(
+#   from = "/p/projects/magpie/users/dish/magpie/output/SUSCDR_ALL/SSP2_BD78/step3_f60_bioenergy_dem.cs3",
+#   to   = file.path(dest_dir, "f60_bioenergy_dem.cs3"),
+#   overwrite = TRUE
+# )
 
 
 # check the BE value used in patch
